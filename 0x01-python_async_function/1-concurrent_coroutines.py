@@ -14,14 +14,6 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     """
     queue, array = [], []
 
-    # for _ in range(n):
-    #     queue.append(asyncio.create_task(wait_random(max_delay)))
-
-    # array.append(await asyncio.gather(*queue))
-
-    # for q in asyncio.as_completed(queue):
-    #     array.append(await q)
-
     for _ in range(n):
         queue.append(wait_random(max_delay))
 
