@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """ Mypy Function """
-
 from typing import Tuple, List
 
 
