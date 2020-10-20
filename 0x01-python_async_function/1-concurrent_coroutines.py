@@ -8,13 +8,14 @@ wait_random = __import__('0-basic_async_syntax').wait_random
 
 
 async def wait_n(max_delay: int, n: int) -> List[float]:
-    """ Append Times in Array """
+    """ Append Times in List """
     q, array = [], []
+
     for _ in range(n):
         q.append(wait_random(max_delay))
 
-    for q in asyncio.as_completed(q):
-        rta = await q
+    for idx in asyncio.as_completed(q):
+        rta = await idx
         array.append(rta)
 
     return array
