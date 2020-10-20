@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-""" TypeVar """
-
+""" Valid Type Annotations """
 from typing import Mapping, Any, Union, TypeVar
 
 T = TypeVar("T")
