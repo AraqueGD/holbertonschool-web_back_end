@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
+""" Import Modules """
 
-""" Async Comprehensions """
-
+import random
 from asyncio import sleep
-from random import uniform
-from typing import AsyncGenerator, Generator
+from typing import Generator, AsyncGenerator
 
 
 async def async_generator() -> Generator[float, None, None]:
     """ Async Generator """
     for _ in range(10):
         await sleep(1)
-        yield uniform(0, 10)
+        yield random.uniform(0, 10)
