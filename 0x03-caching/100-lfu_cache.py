@@ -18,11 +18,6 @@ class LFUCache(BaseCaching):
         if (key is None or item is None):
             return
 
-        if (key not in self.list_cache):
-            self.list_cache.append(key)
-        else:
-            self.l_list(key)
-
         self.cache_data[key] = item
 
         item_count = self.count.get(key, None)
@@ -51,13 +46,6 @@ class LFUCache(BaseCaching):
             self.count[key] += 1
             self.right_list(key)
         return item
-
-    def l_list(self, item):
-        """ Method Lasted List Item """
-        length = len(self.list_cache)
-        if self.list_cache[length - 1] != item:
-            self.list_cache.remove(item)
-            self.list_cache.append(item)
 
     @staticmethod
     def get_first(array):
