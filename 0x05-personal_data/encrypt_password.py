@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-""" Encrypt Password """
+"""
+Encrypt Password
+"""
+
 import bcrypt
 
 
@@ -12,7 +15,7 @@ def hash_password(password: str) -> bytes:
 
 
 def is_valid(hashed_password: bytes, password: str) -> bool:
-    """ Function Valid Data """
+    """ Function Valid Password Hashed """
     valid = False
     encoded = password.encode()
     if bcrypt.checkpw(encoded, hash_password):
