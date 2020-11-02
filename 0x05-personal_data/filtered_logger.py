@@ -4,6 +4,8 @@
 import logging
 import re
 from typing import List
+import mysql.connector
+from os import environ
 
 PII_FIELDS = ("name", "email", "phone", "ssn", "password",)
 
@@ -27,6 +29,20 @@ def get_logger() -> logging.Logger:
     stream_handler.setFormatter(RedactingFormatter(list(PII_FIELDS)))
     logger.addHandler(stream_handler)
     return logger
+
+
+def get_db() -> mysql.connector.connection.MySQLConnection:
+    """ Connection to Data Base """
+    username = environ.get("PERSONAL_DATA_DB_USERNAME", "root")
+    password = environ.get("PERSONAL_DATA_DB_PASSWORD", "")
+    host = environ.get("PERSONAL_DATA_DB_HOST", "localhost")
+    db_name = environ.get("PERSONAL_DATA_DB_NAME")
+
+    connect = mysql.connector.connection.MySQLConnection(user=username,
+                                                         password=password,
+                                                         host=host,
+                                                         database=db_name)
+    return connect
 
 
 class RedactingFormatter(logging.Formatter):
