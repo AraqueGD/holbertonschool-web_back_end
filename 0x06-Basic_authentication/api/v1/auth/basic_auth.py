@@ -42,7 +42,7 @@ class BasicAuth(Auth):
         """ Method Extract User Credentials """
         if (decoded_base64_authorization_header is None or
                 not isinstance(decoded_base64_authorization_header, str) or
-                ":" in decoded_base64_authorization_header):
+                ":" not in decoded_base64_authorization_header):
             return None, None
 
         credentials = decoded_base64_authorization_header.split(':', 1)
