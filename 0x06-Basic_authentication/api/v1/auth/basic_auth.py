@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+""" Module Basic Auth """
+
+from api.v1.auth.auth import Auth
+
+
+class BasciAuth(Auth):
+    """ Class Basic Auth """
+    pass
