@@ -5,16 +5,19 @@ from uuid import uuid4
 from typing import Union, Optional, Callable
 
 
-class Cache():
-    """ Class Cache """
+class Cache:
+    """ Class for implementing a Cache """
 
     def __init__(self):
-        """ Constructor Init """
+        """ Constructor Method """
         self._redis = redis.Redis()
         self._redis.flushdb()
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
-        """ Store Method """
-        r_key = str(uuid4())
-        self._redis.set(r_key, data)
-        return r_key
+        """Store the input data in Redis using a
+        random key and return the key.
+        """
+        random_key = str(uuid4())
+        self._redis.set(random_key, data)
+
+        return random_key
