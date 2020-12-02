@@ -9,11 +9,10 @@ class Cache():
     """ Class Cache """
 
     def __init__(self):
-    self._redis = redis.Redis()
-    self._redis.flushdb()
+        """ Constructor Init """
+        self._redis = redis.Redis()
+        self._redis.flushdb()
 
-    @call_history
-    @count_calls
     def store(self, data: Union(str, bytes, int, float)) -> str:
         """ Store Method """
         key = str(uuid4())
