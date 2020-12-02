@@ -6,18 +6,18 @@ from typing import Union, Optional, Callable
 
 
 class Cache:
-    """ Class for implementing a Cache """
+    """ Class to implement cache strategy with redis """
 
     def __init__(self):
-        """ Constructor Method """
+        """ Constructor method """
         self._redis = redis.Redis()
         self._redis.flushdb()
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
-        """Store the input data in Redis using a
-        random key and return the key.
+        """Get a data that will be saved in redis like value of
+        a random key that will be created with uuid.
         """
-        random_key = str(uuid4())
-        self._redis.set(random_key, data)
+        key = str(uuid4())
+        self._redis.set(key, data)
 
-        return random_key
+        return key
