@@ -15,6 +15,6 @@ class Cache():
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """ Store Method """
-        key = str(uuid4())
-        self._redis.set(key, data)
-        return key
+        r_key = str(uuid4())
+        self._redis.set(r_key, data)
+        return r_key
