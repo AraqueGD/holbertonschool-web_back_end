@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-""" App Flash Basic """
+"""My flask app
+"""
 from flask import Flask, render_template, request
 from flask_babel import Babel
 
 
 class Config(object):
-    """ Config Lenguages """
+    """The config class"""
+
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
@@ -16,11 +18,11 @@ app.config.from_object(Config)
 babel = Babel(app)
 
 
-@app.route("/", strict_slashes=False)
+@app.route('/', strict_slashes=False)
 def main():
-    """ / Route
+    """Main function to test i18n
     """
-    return render_template("2-index.html")
+    return render_template('2-index.html')
 
 
 @babel.localeselector
