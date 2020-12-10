@@ -5,6 +5,5 @@
 def schools_by_topic(mongo_collection, topic):
     """ With PyMongo Find Documents """
     results = mongo_collection.find({"topics": topic})
-
-    for result in results:
-        return result
+    list_rta = [r for r in results]
+    return list_rta
