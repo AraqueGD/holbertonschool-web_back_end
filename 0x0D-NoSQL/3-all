@@ -1,0 +1,3 @@
+// View Documents in School Collection
+show collections
+db.school.find()
