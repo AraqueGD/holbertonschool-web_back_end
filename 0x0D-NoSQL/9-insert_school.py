@@ -4,5 +4,5 @@
 
 def insert_school(mongo_collection, **kwargs):
     """ Insert Document """
-    document = mongo_collection(kwargs)
+    document = mongo_collection.insert(kwargs)
     return document
